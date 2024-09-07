@@ -13,7 +13,7 @@ function aya_shortcode_alist_cli_fs_list_methods($atts = array(), $content = nul
 {
     $atts = shortcode_atts(
         array(
-            'method' => 'list', //by:get by:search
+            'method' => 'get', //by:list by:search
             'title' => '',
             'path' => '/',
             'password' => '',

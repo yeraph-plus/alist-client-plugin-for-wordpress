@@ -17,10 +17,6 @@ if (!defined('ABSPATH')) exit;
 define('AYA_ALIST_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('AYA_ALIST_PLUGIN_PATH', plugin_dir_path(__FILE__));
 
-//define('ALIST_SERVER', 'https://alist-server.yeraph.com/'); // Alist 服务器地址
-//define('ALIST_USERNAME', 'admmnn'); // Alist 用户名
-//define('ALIST_PASSWORD', 'XRykOAoj'); // Alist 密码
-
 //引入Alist客户端组件
 require_once AYA_ALIST_PLUGIN_PATH . 'lib/Http_Request.php';
 require_once AYA_ALIST_PLUGIN_PATH . 'lib/Alist.php';

@@ -6,16 +6,6 @@
 
 使用WordPress短代码在文章中插入Alist服务器中的文件链接，通过Alist托管站点的文件下载。
 
-#### 短代码功能
-
-文件列表：`[alist_cli method="list" title="文件列表标题" path="/" password="" page="1" per_page="0" refresh="false" ]列表描述[/alist_cli]`
-
-文件/文件夹：`[alist_cli method="get" path="/" password="" page="1" per_page="0" refresh="false" ][/alist_cli]`
-
-最简调用：`[alist_cli path="/" /]`（不指定方法时，默认使用get接口）
-
-直接输出文件真实地址：`[alist_raw_url path="/readme.md" /]`（用于嵌入网页播放器）
-
 #### 插件设置
 
 **PHP需要 `curl` 和 `json` 拓展**
@@ -31,6 +21,24 @@ Alist服务器地址需要公网可访问，游客访问、下载代理等请在
 支持在文章发布时自动向Alist请求新建文件夹。
 
 通过RestAPI转发了Alist的接口，可用于实现其他功能。
+
+#### 短代码功能
+
+文件列表：
+
+`[alist_cli method="list" title="文件列表标题" path="/" password="" page="1" per_page="0" refresh="false" ]列表描述[/alist_cli]`
+
+文件/文件夹：
+
+`[alist_cli method="get" path="/" password="" page="1" per_page="0" refresh="false" ][/alist_cli]`
+
+最简调用：
+
+`[alist_cli path="/" /]`（不指定方法时，默认使用get接口）
+
+直接输出文件真实地址：
+
+`[alist_raw_url path="/readme.md" /]`（用于嵌入网页播放器）
 
 #### 增加功能
 

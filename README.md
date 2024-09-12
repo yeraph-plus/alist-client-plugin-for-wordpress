@@ -42,8 +42,6 @@ Alist服务器地址需要公网可访问，游客访问、下载代理等请在
 
 #### 增加功能
 
-[Alist 文档](https://alist.nn.ci/zh/guide/api/auth.html)
+Alist的API封装和使用的请求方法在 `/lib`下 ，请自行查看，是根据 Alist API (V3) 实现的 PHP 客户端实例。
 
-Alist的API封装和使用的请求方法在 `/lib` ，请自行查看，是根据 Alist API (V3) 实现的 PHP 客户端实例。
-
-`demo.php` 提供了一些简单的使用方法样例，类内部完整封装了Alist的 `auth` 、 `fs` 、 `public` 这三组接口，自行查看，其他的一些功能接口感觉一般也用不上，就没管。
+`demo.php` 提供了一些简单的使用方法样例，类内部完整封装了Alist的 `auth` 、 `fs` 、 `public` 这三组接口，其他的一些功能接口感觉一般也用不上，就没管。具体的API参数请参照[Alist 文档](https://alist.nn.ci/zh/guide/api/auth.html)。

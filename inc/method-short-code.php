@@ -65,7 +65,6 @@ function aya_shortcode_alist_cli_fs_list_methods($atts = array(), $content = nul
     $json_atts = json_encode($query_params, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
     $title = htmlentities($atts['title']);
-    $content = htmlentities($content);
 
     //插件设置
     $custom_css = AYF::get_opt('site_alist_custom_css', 'alist');
@@ -125,9 +124,11 @@ function aya_shortcode_alist_cli_fs_list_methods($atts = array(), $content = nul
         $html .= aya_alist_server_basic_list($method, $path, $atts);
     }
     //卡片描述
-    if (!empty($content)) $html .= '<p class="content-alist text-muted">' . $list_desc . $content . '</p>';
+    $html .= '<p class="content-alist text-muted">' . $list_desc . '</p>';
 
     $html .= '</div>';
+
+    $html .= do_shortcode($content);
 
     return $html;
 }
@@ -167,7 +168,6 @@ function aya_shortcode_alist_cli_get_raw_url($atts = array(), $content = null)
 
     return $fs['raw_url'];
 }
-
 //异步获取文件列表
 function aya_alist_server_ajax_list_callback()
 {
@@ -186,6 +186,7 @@ function aya_alist_server_ajax_list_callback()
 
     wp_die();
 }
+//文件列表结构
 function aya_alist_server_basic_list($method, $path, $atts)
 {
     //错误返回时HTML

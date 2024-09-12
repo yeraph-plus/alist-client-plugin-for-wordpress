@@ -80,7 +80,7 @@ function aya_alist_get_token()
     $name = AYF::get_opt('site_alist_api_username', 'alist');
     $pswd = AYF::get_opt('site_alist_api_password', 'alist');
 
-    return aya_alist_request_token_file($server, $name, $pswd); //
+    return aya_alist_request_token($server, $name, $pswd);
 }
 //Ping测试
 function aya_alist_server_ping_request()

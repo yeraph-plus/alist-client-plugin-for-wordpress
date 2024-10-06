@@ -21,11 +21,8 @@ if (!defined('AYA_RELEASE')) {
 }
 //引入设置框架
 if (!class_exists('AYF')) {
-    define('AYF_URI', untrailingslashit(plugin_dir_url(__FILE__)));
     require_once AYA_ALIST_PLUGIN_PATH . '/framework-required/setup.php';
 }
-
-add_action('after_setup_theme', 'aya_alist_server_option');
 
 //添加设置选项
 function aya_alist_server_option()
@@ -209,3 +206,5 @@ function aya_alist_server_option()
         ),
     ));
 }
+
+add_action('after_setup_theme', 'aya_alist_server_option');

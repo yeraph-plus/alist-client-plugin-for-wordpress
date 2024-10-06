@@ -51,7 +51,6 @@ if (!class_exists('AYA_Framework_Setup')) {
         function __construct()
         {
             if (is_null(self::$include_once)) {
-                add_action('admin_init', array(&$this, 'load_textdomain'));
                 add_action('admin_enqueue_scripts', array(&$this, 'enqueue_script'));
 
                 self::include();
@@ -59,20 +58,11 @@ if (!class_exists('AYA_Framework_Setup')) {
                 self::$include_once = true;
             }
         }
-        //注册翻译文件
-        public function load_textdomain()
-        {
-            $domain = 'aiya-cms-framework';
-            $locale = apply_filters('plugin_locale', get_locale(), $domain);
-
-            load_textdomain($domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo');
-            load_plugin_textdomain($domain, false, dirname(plugin_basename(__FILE__)) . '/languages/');
-        }
         //加载样式
         public function enqueue_script()
         {
-            wp_enqueue_style('aiya-cms-framework', AYF_URI . '/framework-required/assects/css/framework-style.css');
-            wp_enqueue_script('aiya-cms-framework', AYF_URI . '/framework-required/assects/js/framework-main.js');
+            wp_enqueue_style('aiya-cms-framework', AYF_URI . '/assects/css/framework-style.css');
+            wp_enqueue_script('aiya-cms-framework', AYF_URI . '/assects/js/framework-main.js');
         }
         //引入框架
         public static function include()

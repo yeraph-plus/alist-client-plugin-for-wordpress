@@ -85,7 +85,7 @@ if (!class_exists('AYA_Shortcode')) {
         public function enqueue_script()
         {
             //add_thickbox();
-            wp_enqueue_script('aiya-shortcode-manager', AYF_URI . '/framework-required/assects/js/framework-shortcode-editor.js');
+            wp_enqueue_script('aiya-shortcode-manager', AYF_URI . '/assects/js/framework-shortcode-editor.js');
         }
         //注册短代码方法
         public static function shortcode_register($shortcode_name, $args)

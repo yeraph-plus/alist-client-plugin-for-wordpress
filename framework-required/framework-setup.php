@@ -71,8 +71,8 @@ if (!class_exists('AYA_Framework_Setup')) {
         //加载样式
         public function enqueue_script()
         {
-            wp_enqueue_style('aiya-cms-framework', AYF_URI . '/assects/css/framework-style.css');
-            wp_enqueue_script('aiya-cms-framework', AYF_URI . '/assects/js/framework-main.js');
+            wp_enqueue_style('aiya-cms-framework', AYF_URI . '/framework-required/assects/css/framework-style.css');
+            wp_enqueue_script('aiya-cms-framework', AYF_URI . '/framework-required/assects/js/framework-main.js');
         }
         //引入框架
         public static function include()

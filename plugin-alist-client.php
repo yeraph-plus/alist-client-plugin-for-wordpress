@@ -26,5 +26,5 @@ require_once AYA_ALIST_PLUGIN_PATH . 'plugin-build-framework-options.php';
 //插件文件
 require_once AYA_ALIST_PLUGIN_PATH . 'inc/method-public.php';
 require_once AYA_ALIST_PLUGIN_PATH . 'inc/method-upload.php';
-require_once AYA_ALIST_PLUGIN_PATH . 'inc/method-rest-api.php';
+//require_once AYA_ALIST_PLUGIN_PATH . 'inc/method-rest-api.php';
 require_once AYA_ALIST_PLUGIN_PATH . 'inc/method-short-code.php';

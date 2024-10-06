@@ -1,14 +1,12 @@
 <?php
 if (!defined('ABSPATH')) exit;
 
-add_action('wp_enqueue_scripts', 'aya_alist_plugin_enqueue_scripts');
-add_action('after_setup_theme', 'aya_alist_server_option');
-
-//注册静态文件
-function aya_alist_plugin_enqueue_scripts()
-{
-    //检查是否从AIYA-CMS主题加载
-    if (!defined('AYA_RELEASE')) {
+//检查是否从AIYA-CMS主题加载
+if (!defined('AYA_RELEASE')) {
+    add_action('wp_enqueue_scripts', 'aya_alist_plugin_enqueue_scripts');
+    //注册静态文件
+    function aya_alist_plugin_enqueue_scripts()
+    {
         $url_cdn = '//cdnjs.cloudflare.com/ajax/libs';
         //$url_cdn = '//s4.zstatic.net/ajax/libs';
 
@@ -21,14 +19,17 @@ function aya_alist_plugin_enqueue_scripts()
         wp_enqueue_style('bootstrap-icons');
     }
 }
+//引入设置框架
+if (!class_exists('AYF')) {
+    define('AYF_URI', untrailingslashit(plugin_dir_url(__FILE__)));
+    require_once AYA_ALIST_PLUGIN_PATH . '/framework-required/setup.php';
+}
+
+add_action('after_setup_theme', 'aya_alist_server_option');
+
 //添加设置选项
 function aya_alist_server_option()
 {
-    //引入设置框架
-    if (!defined('AYF_VERSION')) {
-        require_once AYA_ALIST_PLUGIN_PATH . '/framework-required/setup.php';
-        define('AYF_URI', untrailingslashit(plugin_dir_url(__FILE__)) . '/framework-required');
-    }
     //设置表单
     AYF::new_opt(array(
         'title' => 'AIYA-AlistClient',
@@ -63,7 +64,7 @@ function aya_alist_server_option()
             ),
             array(
                 'type' => 'message',
-                'desc' => 'Alist 服务器需要在公开网络下可用，如果设置为[code]http://127.0.0.1:5244[/code]使用时请启用直链获取设置',
+                'desc' => 'Alist 服务器需要在公开网络下可用，如果设置为 [code] http://127.0.0.1:5244 [/code] 使用时请启用直链获取设置',
             ),
             array(
                 'title' => '服务器地址',
